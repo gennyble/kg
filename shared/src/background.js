@@ -8,10 +8,6 @@ if (!globalThis.browser) {
 
 let sessionToken = undefined;
 let syncSessionFromExisting = true;
-let sessionApiToken = undefined;
-let sessionApiEngine = undefined;
-let sessionSummaryType = undefined;
-let sessionTargetLanguage = undefined;
 let sessionPrivacyConsent = false;
 let IS_CHROME = true;
 
@@ -28,26 +24,12 @@ if (IS_CHROME) {
 async function saveToken(
   {
     token,
-    api_token,
-    api_engine,
     sync,
-    summary_type,
-    target_language,
     privacy_consent,
   } = {},
   isManual = false,
 ) {
   sessionToken = typeof token !== 'undefined' ? token : sessionToken;
-  sessionApiToken =
-    typeof api_token !== 'undefined' ? api_token : sessionApiToken;
-  sessionApiEngine =
-    typeof api_engine !== 'undefined' ? api_engine : sessionApiEngine;
-  sessionSummaryType =
-    typeof summary_type !== 'undefined' ? summary_type : sessionSummaryType;
-  sessionTargetLanguage =
-    typeof target_language !== 'undefined'
-      ? target_language
-      : sessionTargetLanguage;
   sessionPrivacyConsent =
     typeof privacy_consent !== 'undefined'
       ? privacy_consent
@@ -65,10 +47,6 @@ async function saveToken(
     await browser.storage.local.set({
       session_token: token,
       sync_existing: shouldSync,
-      api_token: sessionApiToken,
-      api_engine: sessionApiEngine,
-      summary_type: sessionSummaryType,
-      target_language: sessionTargetLanguage,
       privacy_consent: sessionPrivacyConsent,
     });
   } catch (error) {
@@ -87,10 +65,6 @@ async function saveToken(
   await browser.runtime.sendMessage({
     type: 'synced',
     token: sessionToken,
-    api_token: sessionApiToken,
-    api_engine: sessionApiEngine,
-    summary_type: sessionSummaryType,
-    target_language: sessionTargetLanguage,
     privacy_consent: sessionPrivacyConsent,
   });
 }
@@ -187,10 +161,6 @@ async function loadStorageData() {
   const {
     token,
     sync_existing,
-    api_token,
-    api_engine,
-    summary_type,
-    target_language,
     privacy_consent,
   } = await fetchSettings();
 
@@ -198,11 +168,6 @@ async function loadStorageData() {
 
   if (typeof token === 'undefined') syncSessionFromExisting = true;
   else syncSessionFromExisting = sync_existing;
-
-  sessionApiToken = api_token;
-  sessionApiEngine = api_engine;
-  sessionSummaryType = summary_type;
-  sessionTargetLanguage = target_language;
 
   if (!IS_CHROME) sessionPrivacyConsent = privacy_consent;
 }

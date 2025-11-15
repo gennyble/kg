@@ -26,7 +26,6 @@ Get it for your browser here:
 
 - Sets Kagi as your default search engine
 - Automatic login when searching in incognito/private browsing
-- Use the Universal Summarizer on the current page
 - ... more in the future!
 
 ## Other Browsers

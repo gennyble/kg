@@ -91,8 +91,6 @@
           <div class="desc" style="font-size: 0.9rem;">
             With your permission, this extension will access your Kagi account (via the session cookie) and automatically configure the extension so that won't need to log-in when in private browsing mode. Please note you will need to set 'allow in private browsing' in your extensions page as the extension cannot set this automatically.
             <br /><br />
-            Granting access to the current tab will enable the Universal Summarizer, which receives the URL of your tab and generates a summary.
-            <br /><br />
             <a href="https://kagi.com/privacy#Browser-Extension" target="_blank" rel="noopener noreferrer">For more information, please refer to our Privacy Policy</a>
             <br /><br />
             <button id="privacy_consent_button">Allow access</button>
@@ -153,35 +151,6 @@
           <input type="password" id="token_input" value="" placeholder="my token" />
         </div>
 
-        <div class="setting_row">
-          <div>
-            <div class="title">
-              Universal Summarizer API key
-            </div>
-            <div class="desc">
-              This enables selection of advanced summarization models available with the <a href="https://kagi.com/summarizer/api.html" target="_blank" rel="noopener noreferrer">Universal Summarizer API</a>.
-              <br />
-              Note: You can still use summarize feature in Kagi extension without any API key, provided you are logged in into your Kagi account.
-            </div>
-          </div>
-        </div>
-
-        <div class="setting_row">
-          <input type="password" id="api_token_input" value="" placeholder="my API key" />
-        </div>
-
-        <div class="setting_row api_param" style="display: none">
-          <div>
-            <label class="title" for="engine">API Summarizer Engine</label>
-            <select id="engine">
-              <option value="cecil" selected="selected">Cecil (free)</option>
-              <option value="agnes">Agnes</option>
-              <option value="daphne">Daphne</option>
-              <option value="muriel">Muriel</option>
-            </select>
-          </div>
-        </div>
-
         <div class="setting_row" style="display: none" id="save_error">
           <div>
             <div class="title">
@@ -197,90 +166,6 @@
           <button id="token_save">Save settings</button>
         </div>
 
-      </div>
-
-      <div id="fastgpt" style="display: none">
-        <div class="title">
-          FastGPT
-        </div>
-
-        <div class="setting_row">
-          <form id="fastgpt_form" action="https://kagi.com/fastgpt?query=" method="GET" target="_blank">
-            <input id="fastgpt_query" name="query" type="text" value="" placeholder="Ask any question..." />
-
-            <button id="fastgpt_submit" type="submit">Answer</button>
-          </form>
-        </div>
-      </div>
-
-      <div id="summarize" style="display: none">
-
-        <div class="title">
-          Summarize the current page
-        </div>
-
-        <div class="setting_row">
-          <div class="summarize_option">
-            <label for="summary_type">Summary Type</label>
-            <select id="summary_type">
-              <option value="summary" selected="selected">Summary</option>
-              <option value="takeaway">Key Moments</option>
-            </select>
-          </div>
-
-          <div class="summarize_option">
-            <label for="target_language">Output Language</label>
-            <select id="target_language">
-              <option value="" selected="selected">Default</option>
-              <option value="DOC">Document Language</option>
-              <option value="BG">Bulgarian</option>
-              <option value="CS">Czech</option>
-              <option value="DA">Danish</option>
-              <option value="DE">German</option>
-              <option value="EL">Greek</option>
-              <option value="EN">English</option>
-              <option value="ES">Spanish</option>
-              <option value="ET">Estonian</option>
-              <option value="FI">Finnish</option>
-              <option value="FR">French</option>
-              <option value="HU">Hungarian</option>
-              <option value="ID">Indonesian</option>
-              <option value="IT">Italian</option>
-              <option value="JA">Japanese</option>
-              <option value="KO">Korean</option>
-              <option value="LT">Lithuanian</option>
-              <option value="LV">Latvian</option>
-              <option value="NB">Norwegian</option>
-              <option value="NL">Dutch</option>
-              <option value="PL">Polish</option>
-              <option value="PT">Portuguese</option>
-              <option value="RO">Romanian</option>
-              <option value="RU">Russian</option>
-              <option value="SK">Slovak</option>
-              <option value="SL">Slovenian</option>
-              <option value="SV">Swedish</option>
-              <option value="TR">Turkish</option>
-              <option value="UK">Ukrainian</option>
-              <option value="ZH">Chinese (simplified)</option>
-              <option value="ZH-HANT">Chinese (traditional)</option>
-            </select>
-          </div>
-
-          <button id="summarize_page">Summarize</button>
-        </div>
-      </div>
-      
-      <div id="request_permissions" style="display: none">
-
-        <div class="title">
-          Summarize the current page
-        </div>
-
-        <div class="desc">Allow accessing the currently active tab, so it can be summarized.</div>
-
-        <div class="setting_row">
-          <button id="request_permissions_button">Request permissions</button>
-        </div>
       </div>
 
     </div>

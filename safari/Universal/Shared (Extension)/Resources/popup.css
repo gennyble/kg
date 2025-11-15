@@ -126,11 +126,9 @@ h2 {
 #instructions>li:not(:first-child) {
     margin-top: 1em;
 }
-
 summary {
-	outline: none;
+    outline: none;
 }
-
 .noListStyle {
 	list-style: none;
 }

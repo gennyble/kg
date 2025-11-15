@@ -42,9 +42,6 @@
   "commands": {
     "_execute_action": {
       "description": "Open the Kagi extension"
-    },
-    "summarize-active-page": {
-      "description": "Summarize the currently active page"
     }
   }
 }
