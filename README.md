@@ -1,3 +1,13 @@
+this is a fork of the Kagi Search Extension that removes FastGPT and their
+AI Summarizer from the Firefox and Chrome extensions. The Safari extension
+is pretty untouched. It anyone has experience there and wants to work on that,
+PRs are welcome.
+
+there is a signed version of the firefox extension over in the releases section.
+since it is signed, it can be used on the Firefox and Firefox Beta versions.
+
+---
+
 # Kagi Search Extension
 
 This contains the source for the [Kagi Search](https://kagi.com) extension for Firefox and Chrome.
